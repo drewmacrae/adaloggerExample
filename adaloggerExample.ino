@@ -27,10 +27,10 @@ void error(uint8_t errno) {
 //   #define Serial SerialUSB
 
 void setup() {
-  // connect at 115200 so we can read the GPS fast enough and echo without dropping chars
-  // also spit it out
+  // connect at 115200
   Serial.begin(115200);
-  while(!Serial){}
+  //wait 10 seconds to see if a computer wants to hear hello world
+  while(!Serial){if(millis()>10000)break;}
   Serial.println("\r\nAnalog logger test");
   pinMode(13, OUTPUT);
 
